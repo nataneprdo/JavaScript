@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            font: normal 10pt Arial;
+        }
+        h1 {
+            font-size: 20pt Arial;
+        }
+        input#txtp {
+            width: 200px;
+            border-radius: 10px;
+            transition: 0;
+        }
+        input#button {
+            width: 80px;
+            height: 25px;
+            font: normal 10pt Arial;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Trânsito</h1>
+    Digite o país de onde você é: <input type="text" name="txtp" id="txtp">
+    <input type="submit" id="button" value="verificar" onclick="nacionalidade()">
+    <div id="res">
+
+    </div> 
+    <script>
+        function nacionalidade(){
+            var pais = document.querySelector('input#txtp')
+            var res = document.querySelector('div#res')
+            var p = String(pais.value)
+            res.innerHTML = `<p>Seu país é <strong>${pais}</strong></p>`
+            if (p == 'Brasil'){
+                res.innerHTML = `<p>Brasileiro!</p>`
+            } else {
+                res.innerHTML = `<p>Estrangeiro!</p>`
+            }
+        }
+    </script>
+</body>
+</html>
